@@ -277,6 +277,51 @@
       text-align: center;
     }
 
+    .scroll-hint {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      margin-top: 1.25rem;
+      color: #f8f0ff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      opacity: 0.9;
+      text-shadow: 0 8px 26px rgba(15, 4, 24, 0.34);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .scroll-hint:hover {
+      opacity: 1;
+      transform: translateY(2px);
+    }
+
+    .scroll-hint--dark {
+      display: flex;
+      width: fit-content;
+      margin: 1.45rem auto 0;
+      color: #4b2067;
+      text-shadow: none;
+    }
+
+    .scroll-hint--center {
+      display: flex;
+      width: fit-content;
+      margin: 1.5rem auto 0;
+    }
+
+    .scroll-hint__arrow {
+      display: inline-grid;
+      place-items: center;
+      width: 1.85rem;
+      height: 1.85rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+      animation: arrowFloat 1.8s ease-in-out infinite;
+    }
+
     .letter-section {
       padding-top: clamp(3rem, 7vw, 6rem);
     }
@@ -554,6 +599,12 @@
       }
     }
 
+    @keyframes arrowFloat {
+      50% {
+        transform: translateY(4px);
+      }
+    }
+
     @media (max-width: 780px) {
       .photo-grid {
         grid-template-columns: 1fr;
@@ -632,11 +683,15 @@
           <p class="section-kicker">Un recuerdo</p>
           <h2 id="foto-title">Hay cosas que merecen ser tratadas con cuidado.</h2>
           <p>Por eso quise escribirlo despacio, sin presionarte, y con el respeto que debí cuidar mejor desde el principio.</p>
+          <a class="scroll-hint" href="#carta">
+            <span>La carta está abajo</span>
+            <span class="scroll-hint__arrow" aria-hidden="true">↓</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="section letter-section" aria-labelledby="carta-title">
+    <section class="section letter-section" id="carta" aria-labelledby="carta-title">
       <div class="paper reveal">
         <h2 class="letter-title" id="carta-title">Antonela,</h2>
         <article class="letter" aria-label="Carta para Antonela">
@@ -648,10 +703,14 @@
           <p>Solo espero que algún día puedas perdonarme, incluso si las cosas no vuelven a ser como antes.</p>
           <div class="letter-divider" aria-hidden="true"></div>
         </article>
+        <a class="scroll-hint scroll-hint--dark" href="#algoritmo">
+          <span>Sigue bajando</span>
+          <span class="scroll-hint__arrow" aria-hidden="true">↓</span>
+        </a>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="codigo-title">
+    <section class="section" id="algoritmo" aria-labelledby="codigo-title">
       <div class="wrap">
         <p class="section-kicker reveal">Un pequeño algoritmo</p>
         <h2 class="reveal" id="codigo-title">Escrito con esperanza y respeto.</h2>
@@ -662,10 +721,14 @@
           </div>
           <pre><code id="typedCode" class="caret" aria-label="Pseudocódigo Segunda Oportunidad"></code></pre>
         </div>
+        <a class="scroll-hint scroll-hint--center reveal" href="#iris">
+          <span>Sigue bajando</span>
+          <span class="scroll-hint__arrow" aria-hidden="true">↓</span>
+        </a>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="iris-title">
+    <section class="section" id="iris" aria-labelledby="iris-title">
       <div class="iris-card reveal">
         <span class="music-note" aria-hidden="true">♪</span>
         <p class="section-kicker">Iris</p>
@@ -675,10 +738,14 @@
         <div class="iris-actions">
           <a class="button button--ghost" href="https://www.youtube.com/results?search_query=Iris+The+Goo+Goo+Dolls+official" target="_blank" rel="noopener noreferrer">Escuchar Iris</a>
         </div>
+        <a class="scroll-hint scroll-hint--center" href="#respuesta">
+          <span>Sigue bajando</span>
+          <span class="scroll-hint__arrow" aria-hidden="true">↓</span>
+        </a>
       </div>
     </section>
 
-    <section class="section final-section" aria-labelledby="final-title">
+    <section class="section final-section" id="respuesta" aria-labelledby="final-title">
       <div class="final-card reveal">
         <p>No espero que respondas ahora.</p>
         <p>Podés tomarte el tiempo que necesites. Sea cual sea tu decisión, quiero respetarla.</p>
